@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Line Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Sensor DHT 11 - Temperatura 1</h1>
+        <section style="width:100%">
+            <canvas id="dht11Temp1"></canvas>
+        </section>
+        <h1>Sensor DHT 11 - Umidade 1</h1>
+        <section style="width:100%">
+            <canvas id="dht11umi1"></canvas>
+        </section>
+
+        <h1>Sensor DHT 11 - Temperatura 2</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11Temp2"></canvas>
+        </section>
+        <h1>Sensor DHT 11 - Umidade 2</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11umi2"></canvas>
+        </section>
+
+        <h1>Sensor DHT 11 - Temperatura 3</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11Temp3"></canvas>
+        </section>
+        <h1>Sensor DHT 11 - Umidade 3</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11umi3"></canvas>
+        </section>
+
+        <h1>Sensor DHT 11 - Temperatura 4</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11Temp4"></canvas>
+        </section>
+        <h1>Sensor DHT 11 - Umidade 4</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11umi4"></canvas>
+        </section>
+
+        <h1>Sensor DHT 11 - Temperatura 5</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11Temp5"></canvas>
+        </section>
+        <h1>Sensor DHT 11 - Umidade 5</h1>
+        <section style="width: 100%;">
+            <canvas id="dht11umi5"></canvas>
+        </section>
+    </div>
+
+    <script>
+        /* -- Temp 1 -- */
+        var contextoDht11Temp1 = document.getElementById('dht11Temp1').getContext('2d');
+        contextoDht11Temp1.canvas.width = 1000;
+        contextoDht11Temp1.canvas.height = 300;
+        var dht11Temp1 = new Chart(
+            contextoDht11Temp1,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Temperatura',
+                        type: 'line',
+                        borderColor: ['#45b3e7'],
+                        backgroundColor: ['#89cff0']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- Temp 2 -- */
+        var contextoDht11Temp2 = document.getElementById('dht11Temp2').getContext('2d');
+        contextoDht11Temp2.canvas.width = 1000;
+        contextoDht11Temp2.canvas.height = 300;
+        var dht11Temp2 = new Chart(
+            contextoDht11Temp2,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: "Variação de Temperatura",
+                        type: 'line',
+                        borderColor: ['#ff3232'],
+                        backgroundColor: ['#ff7f7f']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- Temp 3 -- */
+        var contextoDht11Temp3 = document.getElementById('dht11Temp3').getContext('2d');
+        contextoDht11Temp3.canvas.width = 1000;
+        contextoDht11Temp3.canvas.height = 300;
+        var dht11Temp3 = new Chart(
+            contextoDht11Temp3,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Temperatura',
+                        type: 'line',
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- Temp 4 */
+        var contextoDht11Temp4 = document.getElementById('dht11Temp4').getContext('2d');
+        contextoDht11Temp4.canvas.width = 1000;
+        contextoDht11Temp4.canvas.height = 300;
+        var dht11Temp4 = new Chart(
+            contextoDht11Temp4,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Temperatura',
+                        type: 'line',
+                        borderColor: ['#00ff00'],
+                        backgroundColor: ['#00ff00']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- Temp 5 */
+        var contextoDht11Temp5 = document.getElementById('dht11Temp5').getContext('2d');
+        contextoDht11Temp5.canvas.width = 1000;
+        contextoDht11Temp5.canvas.height = 300;
+        var dht11Temp5 = new Chart(
+            contextoDht11Temp5,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Temperatura',
+                        type: 'line',
+                        borderColor: ['#ff00ff'],
+                        backgroundColor: ['#ff00ff']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+                /* -- Umidade 1 -- */
+        var contextodht11Umi1 = document.getElementById('dht11umi1').getContext('2d');
+        contextodht11Umi1.canvas.width = 1000;
+        contextodht11Umi1.canvas.height = 300;
+        var dht11umi1 = new Chart(
+            contextodht11Umi1,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Umidade',
+                        type: 'line',
+                        borderColor: ['#45b3e7'],
+                        backgroundColor: ['#89cff0']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- dht11Temperatura -- */
+        var contextodht11Umi2 = document.getElementById('dht11umi2').getContext('2d');
+        contextodht11Umi2.canvas.width = 1000;
+        contextodht11Umi2.canvas.height = 300;
+        var dht11umi2 = new Chart(
+            contextodht11Umi2,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: "Variação de Umidade",
+                        type: 'line',
+                        borderColor: ['#ff3232'],
+                        backgroundColor: ['#ff7f7f']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- luminosidade -- */
+        var contextodht11Umi3 = document.getElementById('dht11umi3').getContext('2d');
+        contextodht11Umi3.canvas.width = 1000;
+        contextodht11Umi3.canvas.height = 300;
+        var dht11umi3 = new Chart(
+            contextodht11Umi3,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Temperatura',
+                        type: 'line',
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- lm35Temperatura */
+        var contextodht11Umi4 = document.getElementById('dht11umi4').getContext('2d');
+        contextodht11Umi4.canvas.width = 1000;
+        contextodht11Umi4.canvas.height = 300;
+        var dht11umi4 = new Chart(
+            contextodht11Umi4,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Umidade',
+                        type: 'line',
+                        borderColor: ['#00ff00'],
+                        backgroundColor: ['#00ff00']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- chave */
+        var contextodht11Umi5 = document.getElementById('dht11umi5').getContext('2d');
+        contextodht11Umi5.canvas.width = 1000;
+        contextodht11Umi5.canvas.height = 300;
+        var dht11umi5 = new Chart(
+            contextodht11Umi5,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Variação de Umidade',
+                        type: 'line',
+                        borderColor: ['#ff00ff'],
+                        backgroundColor: ['#ff00ff']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Níveis de Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+
+        var paginacao = {};
+        var tempo = {};
+        function obterDados(grafico, endpoint) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3300/sensores' + endpoint, false);
+            http.send(null);
+            var valores = JSON.parse(http.responseText);
+            if (paginacao[endpoint] == null) {
+                paginacao[endpoint] = 0;
+            }
+            if (tempo[endpoint] == null) {
+                tempo[endpoint] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao[endpoint];
+            paginacao[endpoint] = valores.length;
+            var valores = valores.slice(ultimaPaginacao);
+            valores.forEach((valor) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                    grafico.data.labels.shift();
+                    grafico.data.datasets[0].data.shift();
+                }
+
+                grafico.data.labels.push(tempo[endpoint]++);
+                grafico.data.datasets[0].data.push(parseFloat(valor));
+                grafico.update();
+            })
+        }
+
+        setInterval(() => {
+            obterDados(dht11Temp1, '/dht11/temp1');
+            obterDados(dht11Temp2, '/dht11/temp2');
+            obterDados(dht11Temp3, '/dht11/temp3');
+            obterDados(dht11Temp4, '/dht11/temp4');
+            obterDados(dht11Temp5, '/dht11/temp5');
+            obterDados(dht11umi1, '/dht11/umi1');
+            obterDados(dht11umi2, '/dht11/umi2');
+            obterDados(dht11umi3, '/dht11/umi3');
+            obterDados(dht11umi4, '/dht11/umi4');
+            obterDados(dht11umi5, '/dht11/umi5');
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
