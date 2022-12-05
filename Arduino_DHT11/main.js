@@ -11,7 +11,7 @@ const SERVIDOR_PORTA = 3300;
 // configure a linha abaixo caso queira que os dados capturados sejam inseridos no banco de dados.
 // false -> nao insere
 // true -> insere
-const HABILITAR_OPERACAO_INSERIR = false;
+const HABILITAR_OPERACAO_INSERIR = true;
 
 // altere o valor da variável AMBIENTE para o valor desejado:
 // API conectada ao banco de dados remoto, SQL Server -> 'producao'
@@ -38,8 +38,8 @@ const serial = async (
                 // altere!
                 // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
                 host: 'localhost',
-                user: 'insertgrupo10',
-                password: '2022',
+                user: 'aluno',
+                password: 'sptech',
                 database: 'cottonanalytics'
             }
         ).promise();
@@ -121,11 +121,25 @@ const serial = async (
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO dados (temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)',
-                    [temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5]
+                    // 'INSERT INTO dados (temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)',
+                    // [temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5]
+                    'INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (1, ?, ?, now());',
+                    [Umi1, Temp1]
                 );
-                console.log("valores inseridos no banco: ", temp1 + ", " + temp2 + ", " + temp3 + ", " + temp4 + ", " + temp5 +"," + umi1 + ","
-                + umi2 + "," + umi3 + ","+ umi4 + "," + umi5);
+                await poolBancoDados.execute(
+                    // 'INSERT INTO dados (temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)',
+                    // [temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5]
+                    'INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (2, ?, ?, now());',
+                    [Umi2, Temp2]
+                );
+                await poolBancoDados.execute(
+                    // 'INSERT INTO dados (temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)',
+                    // [temp1, temp2, temp3, temp4, temp5, umi1, umi2, umi3, umi4, umi5]
+                    'INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (3, ?, ?, now());',
+                    [Umi3, Temp3]
+                );
+                // console.log("valores inseridos no banco: ", temp1 + ", " + temp2 + ", " + temp3 + ", " + temp4 + ", " + temp5 +"," + umi1 + ","
+                // + umi2 + "," + umi3 + ","+ umi4 + "," + umi5);
 
             } else {
                 throw new Error('Ambiente não configurado. Verifique o arquivo "main.js" e tente novamente.');
