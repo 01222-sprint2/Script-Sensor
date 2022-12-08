@@ -11,12 +11,12 @@ const SERVIDOR_PORTA = 3300;
 // configure a linha abaixo caso queira que os dados capturados sejam inseridos no banco de dados.
 // false -> nao insere
 // true -> insere
-const HABILITAR_OPERACAO_INSERIR = false;
+const HABILITAR_OPERACAO_INSERIR = true;
 
 // altere o valor da variável AMBIENTE para o valor desejado:
 // API conectada ao banco de dados remoto, SQL Server -> 'producao'
 // API conectada ao banco de dados local, MySQL Workbench - 'desenvolvimento'
-const AMBIENTE = 'desenvolvimento';
+const AMBIENTE = 'producao';
 
 const serial = async (
     valoresTemp1,
@@ -97,10 +97,23 @@ const serial = async (
                 // -> altere nome da tabela e colunas se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> Importante! você deve ter o aquario de id 1 cadastrado.
-                sqlquery = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (1, ${Umi1}, ${Temp1}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120)`;
+                sqlquery = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (21, ${Umi1}, ${Temp1}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
                 
-                sqlquery2 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (2, ${Umi2}, ${Temp2}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120)`;
+                sqlquery2 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (22, ${Umi2}, ${Temp2}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
 
+                sqlquery3 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (23, ${Umi3}, ${Temp4}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
+
+                sqlquery4 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (24, ${Umi4}, ${Temp5}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
+                
+                sqlquery5 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (25, ${Umi5}, ${Temp5}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
+
+                sqlquery6 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (26, ${Umi3}, ${Temp2}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
+
+                sqlquery7 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (27, ${Umi4}, ${Temp1}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
+                
+                sqlquery8 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (28, ${Umi1}, ${Temp3}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
+
+                sqlquery9 = `INSERT INTO dadosSensor (fkSensor, umidade, temperatura, dataDado) VALUES (29, ${Umi2}, ${Temp3}, CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120));`;
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
                 // Importante! você deve ter criado o usuário abaixo com os comandos presentes no arquivo
                 // "script-criacao-usuario-sqlserver.sql", presente neste diretório.
@@ -108,7 +121,7 @@ const serial = async (
                 
                 function inserirComando(conn, sqlquery) {
                     conn.query(sqlquery);
-                    // console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura + ", " + luminosidade + ", " + lm35Temperatura + ", " + chave)
+                     console.log("valores inseridos no banco: ", Umi1 + ", " + Temp1 + ", " + Umi2 + ", " + Temp2 + ", " + Temp4 + ", " + Umi3 );
                 }
 
                 sql.connect(connStr)
@@ -119,6 +132,33 @@ const serial = async (
                     .then(conn => inserirComando(conn, sqlquery2))
                     .catch(err => console.log("erro! " + err));
 
+                    sql.connect(connStr)
+                    .then(conn => inserirComando(conn, sqlquery3))
+                    .catch(err => console.log("erro! " + err));
+
+                    sql.connect(connStr)
+                    .then(conn => inserirComando(conn, sqlquery4))
+                    .catch(err => console.log("erro! " + err));
+
+                    sql.connect(connStr)
+                    .then(conn => inserirComando(conn, sqlquery5))
+                    .catch(err => console.log("erro! " + err));
+
+                    sql.connect(connStr)
+                    .then(conn => inserirComando(conn, sqlquery6))
+                    .catch(err => console.log("erro! " + err));
+
+                    sql.connect(connStr)
+                    .then(conn => inserirComando(conn, sqlquery7))
+                    .catch(err => console.log("erro! " + err));
+
+                    sql.connect(connStr)
+                    .then(conn => inserirComando(conn, sqlquery8))
+                    .catch(err => console.log("erro! " + err));
+
+                    sql.connect(connStr)
+                    .then(conn => inserirComando(conn, sqlquery9))
+                    .catch(err => console.log("erro! " + err));
             } else if (AMBIENTE == 'desenvolvimento') {
 
                 // altere!

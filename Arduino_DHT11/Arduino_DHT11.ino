@@ -25,14 +25,14 @@ float temp2 = tempProjeto * 1.27;
 float temp3 = tempProjeto * 1.14;
 float temp4 = tempProjeto * 0.85;
 
-float umiProjeto = 0.35 * umidade - 13.34;
+float umiProjeto = 0.142 * umidade - 1.32;
 float umi1 = umiProjeto * 0.9;
 float umi2 = umiProjeto * 1.27;
 float umi3 = umiProjeto * 1.14;
 float umi4 = umiProjeto * 0.85;
 if (isnan(temperatura) or isnan(umidade))
 {
-//Serial.println("Erro ao ler o DHT");
+Serial.println("Erro ao ler o DHT");
 }
 else
 {
@@ -100,12 +100,12 @@ TEMPERATURA
   b = 3,8
 ==================================================
 UMIDADE
-  12 = 72,06a + b
-  7 = 58a + b
-  5 = 14,06a
-  0,35 = a
+  12 = 75,06a + b
+  7 = 40a + b
+  5 = 35,06a
+  0,142 = a
 
-  7 = 58*(0,35) + b
-  7 = 20,3 + b
-  b = -13,3
+  7 = 40*(0,142) + b
+  7 = 5,68 + b
+  b = 1,32
  */
